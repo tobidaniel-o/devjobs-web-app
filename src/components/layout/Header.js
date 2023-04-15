@@ -1,16 +1,18 @@
 import React from "react";
-import headerBackground from "../../assets/desktop/bg-pattern-header.svg";
+import desktopHeaderBg from "../../assets/desktop/bg-pattern-header.svg";
+import tabletHeaderBg from "../../assets/tablet/bg-pattern-header.svg";
+import mobileHeaderBg from "../../assets/mobile/bg-pattern-header.svg";
 import logo from "../../assets/desktop/logo.svg";
 import classes from "./Header.module.css";
 import Switch from "../Switch";
 
 import "../../base.css";
+import styled from "@emotion/styled";
 
 const Header = () => {
 	return (
-		<div
+		<HeaderUI
 			style={{
-				backgroundImage: `url(${headerBackground})`,
 				backgroundRepeat: "no-repeat",
 				backgroundSize: "cover",
 				backgroundPosition: "center",
@@ -30,8 +32,24 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</HeaderUI>
 	);
 };
+
+const HeaderUI = styled.div`
+	/* Laptop */
+	@media (max-width: 1440px) {
+		background-image: url(${desktopHeaderBg});
+	}
+	/* Landscape phone to portrait tablet */
+	@media (min-width: 768px) {
+		background-image: url(${tabletHeaderBg});
+	}
+
+	/* Landscape phones and down */
+	@media (max-width: 480px) {
+		background-image: url(${mobileHeaderBg});
+	}
+`;
 
 export default Header;
