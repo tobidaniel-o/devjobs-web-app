@@ -19,17 +19,14 @@ const Header = () => {
 			}}
 		>
 			<div className="wrapper">
-				<div>
+				<div className={classes.header}>
 					{/* for the logo in the header */}
 					<div className="">
 						<img src={logo} alt="" />
 					</div>
 					{/* for dark mode toggle */}
 					<div>
-						{/* sunlight */}
 						<Switch />
-						{/* toggle button */}
-						{/* moonlight */}
 					</div>
 				</div>
 			</div>
