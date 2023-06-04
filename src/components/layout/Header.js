@@ -2,11 +2,7 @@ import React from "react";
 import desktopHeaderBg from "../../assets/desktop/bg-pattern-header.svg";
 import tabletHeaderBg from "../../assets/tablet/bg-pattern-header.svg";
 import mobileHeaderBg from "../../assets/mobile/bg-pattern-header.svg";
-import logo from "../../assets/desktop/logo.svg";
-import classes from "./Header.module.css";
-import Switch from "../Switch";
 
-import "../../base.css";
 import styled from "@emotion/styled";
 
 const Header = () => {
@@ -20,18 +16,7 @@ const Header = () => {
 				overflowX: "hidden",
 			}}
 		>
-			<div className="wrapper">
-				<div className={classes.header}>
-					{/* for the logo in the header */}
-					<div className="">
-						<img src={logo} alt="" />
-					</div>
-					{/* for dark mode toggle */}
-					<div>
-						<Switch />
-					</div>
-				</div>
-			</div>
+			
 		</HeaderUI>
 	);
 };
