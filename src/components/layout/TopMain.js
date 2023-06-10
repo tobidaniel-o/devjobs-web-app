@@ -1,11 +1,11 @@
-import SearchForm from "../SearchForm";
-import LogoToggle from "./LogoToggle";
+import SearchBar from "../SearchBar/SearchBar";
+import LogoToggle from "./LogoToggle/LogoToggle";
 
 const TopMain = () => {
 	return (
 		<div style={{ position: "relative", top: "-120px" }}>
 			<LogoToggle />
-			<SearchForm />
+			<SearchBar />
 		</div>
 	);
 };

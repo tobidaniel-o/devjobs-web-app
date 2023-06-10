@@ -1,7 +1,7 @@
 import React from "react";
-import Switch from "../Switch";
+import Switch from "../../Switch";
 import classes from "./LogoToggle.module.css";
-import logo from "../../assets/desktop/logo.svg";
+import logo from "../../../assets/desktop/logo.svg";
 
 const LogoToggle = () => {
 	return (

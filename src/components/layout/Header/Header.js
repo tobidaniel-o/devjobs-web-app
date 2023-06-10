@@ -1,7 +1,7 @@
 import React from "react";
-import desktopHeaderBg from "../../assets/desktop/bg-pattern-header.svg";
-import tabletHeaderBg from "../../assets/tablet/bg-pattern-header.svg";
-import mobileHeaderBg from "../../assets/mobile/bg-pattern-header.svg";
+import desktopHeaderBg from "../../../assets/desktop/bg-pattern-header.svg";
+import tabletHeaderBg from "../../../assets/tablet/bg-pattern-header.svg";
+import mobileHeaderBg from "../../../assets/mobile/bg-pattern-header.svg";
 
 import styled from "@emotion/styled";
 

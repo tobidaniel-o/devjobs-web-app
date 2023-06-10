@@ -1,0 +1,123 @@
+.formWrapper {
+	margin-top: 3rem;
+}
+
+form {
+	display: flex;
+}
+
+input {
+	border: none;
+}
+input::placeholder {
+	font-size: 14px;
+}
+
+input:focus {
+	outline: none;
+}
+
+.secondinput {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+}
+
+.thirdinput {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #19202d;
+	font-weight: 600;
+	font-size: 14px;
+	border-radius: 0 10px 10px 0;
+	padding: 1rem;
+}
+
+.formWrapper > form > div {
+	width: calc(100% / 3);
+	border: 1px solid #f2f2f2;
+	overflow-x: hidden;
+	background: #ffffff;
+}
+
+.firstinput {
+	border-radius: 10px 0 0 10px;
+	display: flex;
+	align-items: center;
+	padding-left: 1rem;
+}
+
+button {
+	padding: 1rem 2rem;
+	border-radius: 5px;
+	border: none;
+	color: #f2f2f2;
+	background-color: #5964e0;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+/*  Cards */
+ul {
+	list-style-type: none;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-column-gap: 30px;
+	grid-row-gap: 70px;
+	align-items: stretch;
+}
+
+ul > li {
+	display: block;
+	background-color: #ffffff;
+	padding: 2rem 2rem 2rem 1rem;
+	position: relative;
+    border-radius: 10px;
+}
+
+.postAndContract {
+	display: flex;
+	color: #6e8098;
+}
+
+.postedAt {
+	margin-right: 0.5rem;
+}
+
+.contract {
+	margin-left: 0.5rem;
+}
+
+.position {
+	font-weight: 700;
+	color: #19202d;
+	margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.company {
+	color: #6e8098;
+	margin-bottom: 40px;
+}
+
+.location {
+	color: #5964e0;
+	font-weight: 700;
+}
+
+.logo {
+	width: 45px;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	position: absolute;
+	top: -30px;
+}
+
+.cardContainer {
+	margin-top: 5rem;
+}
