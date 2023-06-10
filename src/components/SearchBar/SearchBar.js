@@ -9,7 +9,7 @@
 
 import "../../base.css";
 import classes from "./SearchBar.module.css";
-import { jobsData } from "../../data";
+
 import { FaSearch } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
@@ -73,51 +73,7 @@ const SearchForm = () => {
 					</div>
 				</form>
 			</div>
-			<div className={classes.cardContainer}>
-				<ul>
-					{jobsData.map((job) => {
-						return (
-							<li key={job.id}>
-								<div
-									className={classes.logo}
-									style={{
-										backgroundColor: `${job.logoBackground}`,
-									}}
-								>
-									<img src={job.logo} alt="" />
-								</div>
-								<div className={classes.postAndContract}>
-									<div
-										className={classes.postedAt}
-									>{`${job.postedAt}`}</div>
-									<span
-										style={{
-											marginTop: "-5px",
-											marginBottm: "-5px",
-											fontWeight: "strong",
-											fontSize: "20px",
-										}}
-									>
-										.
-									</span>
-									<div
-										className={classes.contract}
-									>{`${job.contract}`}</div>
-								</div>
-								<div
-									className={classes.position}
-								>{`${job.position}`}</div>
-								<div className={classes.company}>
-									{job.company}
-								</div>
-								<div className={classes.location}>
-									{job.location}
-								</div>
-							</li>
-						);
-					})}
-				</ul>
-			</div>
+			
 		</>
 	);
 };
