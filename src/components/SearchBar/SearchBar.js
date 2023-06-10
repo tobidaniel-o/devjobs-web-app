@@ -9,7 +9,6 @@
 
 import "../../base.css";
 import classes from "./SearchBar.module.css";
-
 import { FaSearch } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
@@ -73,7 +72,6 @@ const SearchForm = () => {
 					</div>
 				</form>
 			</div>
-			
 		</>
 	);
 };
