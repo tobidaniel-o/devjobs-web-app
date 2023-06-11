@@ -1,7 +1,7 @@
 import { jobsData } from "../../data";
-import classes from "./Card.module.css";
+import classes from "./CardList.module.css";
 
-const Card = () => {
+const CardList = () => {
 	return (
 		<div className={classes.cardContainer}>
 			<ul>
@@ -57,4 +57,4 @@ const Card = () => {
 	);
 };
 
-export default Card;
+export default CardList;

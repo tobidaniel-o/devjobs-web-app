@@ -12,7 +12,7 @@ import classes from "./SearchBar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const SearchForm = () => {
+const SearchBar = () => {
 	const handleChange = (e) => {
 		console.log(e.target.value);
 	};
@@ -76,4 +76,4 @@ const SearchForm = () => {
 	);
 };
 
-export default SearchForm;
+export default SearchBar;

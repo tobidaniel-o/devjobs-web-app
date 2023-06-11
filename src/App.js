@@ -1,14 +1,21 @@
 import "./App.css";
 import Header from "./components/layout/Header/Header";
-import Main from "./components/layout/Main";
-
+import LogoToggle from "./components/layout/LogoToggle/LogoToggle";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Card from "./components/CardList/CardList";
 
 function App() {
 	return (
-		<div>
+		<>
 			<Header />
-			<Main />
-		</div>
+			<div className="wrapper">
+				<div style={{ position: "relative", top: "-120px" }}>
+					<LogoToggle />
+					<SearchBar />
+				</div>
+				<Card />
+			</div>
+		</>
 	);
 }
 
