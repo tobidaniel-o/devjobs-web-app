@@ -15,9 +15,7 @@ const Header = () => {
 				height: "162px",
 				overflowX: "hidden",
 			}}
-		>
-			
-		</HeaderUI>
+		></HeaderUI>
 	);
 };
 

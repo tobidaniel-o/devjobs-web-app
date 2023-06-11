@@ -1,15 +1,4 @@
-/*  Cards */
-ul {
-	list-style-type: none;
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	grid-column-gap: 20px;
-	grid-row-gap: 70px;
-	align-items: stretch;
-}
-
-ul > li {
+li {
 	display: block;
 	background-color: #ffffff;
 	padding: 2rem 2rem 2rem 1.2rem;

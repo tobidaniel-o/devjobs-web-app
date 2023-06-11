@@ -12,10 +12,7 @@ import classes from "./SearchBar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const SearchForm = () => {
-	const handleChange = (e) => {
-		console.log(e.target.value);
-	};
+const SearchBar = ({ onSearch, onSearchLocation, allSearch, location }) => {
 	return (
 		<>
 			<div className={classes.formWrapper}>
@@ -38,7 +35,8 @@ const SearchForm = () => {
 									placeholder="Filter by title, companies, expertise..."
 									size="40"
 									style={{ paddingLeft: "0.5rem" }}
-									onChange={handleChange}
+									onChange={onSearch}
+									// value={allSearch}
 								/>
 							</label>
 						</div>
@@ -59,6 +57,8 @@ const SearchForm = () => {
 								type="text"
 								placeholder="Filter by location..."
 								style={{ paddingLeft: "0.5rem" }}
+								onChange={onSearchLocation}
+								// value={location}
 							/>
 						</label>
 					</div>
@@ -76,4 +76,4 @@ const SearchForm = () => {
 	);
 };
 
-export default SearchForm;
+export default SearchBar;
