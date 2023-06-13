@@ -4,14 +4,19 @@ import LogoToggle from "./components/layout/LogoToggle/LogoToggle";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CardList from "./components/CardList/CardList";
 import { jobsData } from "./data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchByLocation, setSearchByLocation] = useState("");
+	const [searchResult, setSearchResult] = useState(jobsData);
 
 	const handleChange = (e) => {
 		setSearchTerm(e.target.value);
+	};
+
+	const handleJobLocationChange = (e) => {
+		setSearchByLocation(e.target.value);
 	};
 
 	const searchedJobDetails = jobsData.filter(
@@ -24,15 +29,22 @@ function App() {
 				.includes(searchTerm.toLowerCase())
 	);
 
-	const handleJobLocationChange = (e) => {
-		setSearchByLocation(e.target.value);
-	};
+	const searchedJobByLocation = jobsData.filter((jobByLocation) =>
+		jobByLocation.location
+			.toLowerCase()
+			.includes(searchByLocation.toLowerCase())
+	);
 
-	// const searchedJobByLocation = jobsData.filter((searchedJob) =>
-	// 	searchedJob.location
-	// 		.toLowerCase()
-	// 		.includes(searchByLocation.toLowerCase())
-	// );
+
+
+	// useEffect(() => {
+	// 	setSearchResult(searchedJobDetails);
+	// 	setSearchResult(searchedJobByLocation);
+	// }, [searchedJobDetails, searchedJobByLocation, setSearchResult]);
+
+	// useEffect(() => {
+	// 	setSearchResult(searchedJobByLocation);
+	// }, [searchedJobByLocation, setSearchResult]);
 
 	return (
 		<>
@@ -42,10 +54,10 @@ function App() {
 					<LogoToggle />
 					<SearchBar
 						onSearch={handleChange}
-						// onSearchLocation={handleJobLocationChange}
+						onSearchLocation={handleJobLocationChange}
 					/>
 				</div>
-				<CardList list={searchedJobDetails} />
+				<CardList list={searchResult} />
 			</div>
 		</>
 	);
