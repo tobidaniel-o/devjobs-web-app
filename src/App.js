@@ -36,8 +36,7 @@ function App() {
 
 	const handleFormSubmit = (event) => {
 		event.preventDefault();
-		// Perform search using searchTerm and searchOption
-		// You can make an API call or perform the search logic here
+
 		if (searchTerm.length) {
 			const searchedJobDetails = jsonData.filter(
 				(searchedJob) =>
