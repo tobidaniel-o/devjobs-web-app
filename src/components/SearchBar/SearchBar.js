@@ -12,11 +12,18 @@ import classes from "./SearchBar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const SearchBar = ({ onSearch, onSearchLocation, allSearch, location }) => {
+const SearchBar = ({
+	onSearch,
+	onSearchLocation,
+	allSearch,
+	location,
+	handleSubmit,
+	handleCheckbox,
+}) => {
 	return (
 		<>
 			<div className={classes.formWrapper}>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<div className={classes.firstinput}>
 						<div>
 							<FaSearch
@@ -36,7 +43,7 @@ const SearchBar = ({ onSearch, onSearchLocation, allSearch, location }) => {
 									size="40"
 									style={{ paddingLeft: "0.5rem" }}
 									onChange={onSearch}
-									// value={allSearch}
+									value={allSearch}
 								/>
 							</label>
 						</div>
@@ -58,13 +65,17 @@ const SearchBar = ({ onSearch, onSearchLocation, allSearch, location }) => {
 								placeholder="Filter by location..."
 								style={{ paddingLeft: "0.5rem" }}
 								onChange={onSearchLocation}
-								// value={location}
+								value={location}
 							/>
 						</label>
 					</div>
 					<div className={classes.thirdinput}>
 						<label>
-							<input type="checkbox" name="fullTime" />
+							<input
+								type="checkbox"
+								name="fullTime"
+								onChange={handleCheckbox}
+							/>
 							&nbsp; Full Time Only
 						</label>
 

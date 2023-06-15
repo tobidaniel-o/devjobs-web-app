@@ -3,13 +3,24 @@ import Header from "./components/layout/Header/Header";
 import LogoToggle from "./components/layout/LogoToggle/LogoToggle";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CardList from "./components/CardList/CardList";
-import { jobsData } from "./data";
 import { useEffect, useState } from "react";
 
 function App() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchByLocation, setSearchByLocation] = useState("");
-	const [searchResult, setSearchResult] = useState(jobsData);
+	const [checkboxChecked, setCheckboxChecked] = useState(false);
+	const [jsonData, setJsonData] = useState([]);
+
+	const fetchData = () => {
+		fetch("http://localhost:3000/jobs")
+			.then((response) => response.json())
+			.then((data) => setJsonData(data))
+			.catch((error) => console.error(error));
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, [searchTerm, searchByLocation, checkboxChecked]);
 
 	const handleChange = (e) => {
 		setSearchTerm(e.target.value);
@@ -19,33 +30,43 @@ function App() {
 		setSearchByLocation(e.target.value);
 	};
 
-	const searchedJobDetails = jobsData.filter(
-		(searchedJob) =>
-			searchedJob.company
-				.toLowerCase()
-				.includes(searchTerm.toLowerCase()) ||
-			searchedJob.position
-				.toLowerCase()
-				.includes(searchTerm.toLowerCase())
-	);
+	const handleCheckbox = (e) => {
+		setCheckboxChecked(e.target.checked);
+	};
 
-	const searchedJobByLocation = jobsData.filter((jobByLocation) =>
-		jobByLocation.location
-			.toLowerCase()
-			.includes(searchByLocation.toLowerCase())
-	);
+	const handleFormSubmit = (event) => {
+		event.preventDefault();
+		// Perform search using searchTerm and searchOption
+		// You can make an API call or perform the search logic here
+		if (searchTerm.length) {
+			const searchedJobDetails = jsonData.filter(
+				(searchedJob) =>
+					searchedJob.company
+						.toLowerCase()
+						.includes(searchTerm.toLowerCase()) ||
+					searchedJob.position
+						.toLowerCase()
+						.includes(searchTerm.toLowerCase())
+			);
+			setJsonData(searchedJobDetails);
+		}
+		if (searchByLocation.length) {
+			const searchedJobByLocation = jsonData.filter((jobByLocation) =>
+				jobByLocation.location
+					.toLowerCase()
+					.includes(searchByLocation.toLowerCase())
+			);
+			setJsonData(searchedJobByLocation);
+		}
 
-
-
-	// useEffect(() => {
-	// 	setSearchResult(searchedJobDetails);
-	// 	setSearchResult(searchedJobByLocation);
-	// }, [searchedJobDetails, searchedJobByLocation, setSearchResult]);
-
-	// useEffect(() => {
-	// 	setSearchResult(searchedJobByLocation);
-	// }, [searchedJobByLocation, setSearchResult]);
-
+		if (checkboxChecked) {
+			const fullTimeChecked = jsonData.filter(
+				(jobByContract) => jobByContract.contract === "Full Time"
+			);
+			setJsonData(fullTimeChecked);
+			console.log(fullTimeChecked);
+		}
+	};
 	return (
 		<>
 			<Header />
@@ -55,9 +76,13 @@ function App() {
 					<SearchBar
 						onSearch={handleChange}
 						onSearchLocation={handleJobLocationChange}
+						handleSubmit={handleFormSubmit}
+						handleCheckbox={handleCheckbox}
+						allSearch={searchTerm}
+						location={searchByLocation}
 					/>
 				</div>
-				<CardList list={searchResult} />
+				<CardList list={jsonData} />
 			</div>
 		</>
 	);
