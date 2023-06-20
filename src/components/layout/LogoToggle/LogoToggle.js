@@ -3,7 +3,7 @@ import Switch from "../../Switch";
 import classes from "./LogoToggle.module.css";
 import logo from "../../../assets/desktop/logo.svg";
 
-const LogoToggle = () => {
+const LogoToggle = ({handleDarkMode}) => {
 	return (
 		<div className="">
 			<div className={classes.header}>
@@ -13,7 +13,7 @@ const LogoToggle = () => {
 				</div>
 				{/* for dark mode toggle */}
 				<div>
-					<Switch />
+					<Switch handleDarkMode={handleDarkMode}/>
 				</div>
 			</div>
 		</div>

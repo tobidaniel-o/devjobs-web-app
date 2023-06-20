@@ -6,7 +6,6 @@ import Stack from "@mui/material/Stack";
 import iconSun from "../assets/desktop/icon-sun.svg";
 import iconMoon from "../assets/desktop/icon-moon.svg";
 
-
 const AntSwitch = styled(Switch)(({ theme }) => ({
 	width: 28,
 	height: 16,
@@ -54,9 +53,9 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 	},
 }));
 
-export default function CustomizedSwitches() {
+export default function CustomizedSwitches({ handleDarkMode }) {
 	return (
-		<FormGroup>
+		<FormGroup onClick={handleDarkMode}>
 			<Stack direction="row" spacing={1} alignItems="center">
 				<img src={iconSun} alt="" />
 				<AntSwitch inputProps={{ "aria-label": "ant design" }} />
